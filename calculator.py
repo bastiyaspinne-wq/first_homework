@@ -14,22 +14,27 @@
 #     print_hi('PyCharm')
 #
 # # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+continue_calc = 'y'
+while continue_calc.lower() in ['y', 'yes']:
+    try:
+        num1 = int(input('Enter a number: '))
+        num2 = int(input('Enter another number: '))
+        operation = input('operation(+ - * /): ')
+        result = None
 
-num1 = int(input('Enter a number: '))
-num2 = int(input('Enter another number: '))
-operation = input('operation(+ - * /): ')
-result = None
-
-if operation == '+':
-    result = num1 + num2
-elif operation == '-':
-    result = num1 - num2
-elif operation == '*':
-    result = num1 * num2
-elif operation == '/':
-    if num2 == 0:
-        print('Division by zero not allowed')
-    else: result = num1 / num2
-else: print('Invalid operation')
-
-if result is not None: print(result)
+        if operation == '+':
+            result = num1 + num2
+        elif operation == '-':
+            result = num1 - num2
+        elif operation == '*':
+            result = num1 * num2
+        elif operation == '/':
+            if num2 == 0:
+                print('Division by zero not allowed')
+            else: result = num1 / num2
+        else: print('Invalid operation')
+        if result is not None: print(result)
+    except ValueError:
+        print("Error: Please enter only numbers, not letters!")
+        continue_calc = input("Do you want to continue? (y/n): ")
+print("Thank you for using this program")
